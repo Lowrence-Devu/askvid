@@ -16,7 +16,7 @@ Your AI tutor for any YouTube video! Upload a YouTube link, and AskVid will tran
 ### Prerequisites
 
 - Python 3.8 or higher
-- OpenAI API key
+- Gemini AI API key (get from [Google AI Studio](https://makersuite.google.com/app/apikey))
 - FFmpeg (for audio processing)
 
 ### Installation
@@ -41,9 +41,9 @@ Your AI tutor for any YouTube video! Upload a YouTube link, and AskVid will tran
    ```bash
    cp env_example.txt .env
    ```
-   Edit `.env` and add your OpenAI API key:
+   Edit `.env` and add your Gemini AI API key:
    ```
-   OPENAI_API_KEY=your_actual_api_key_here
+   GEMINI_API_KEY=your_actual_gemini_api_key_here
    ```
 
 5. **Run the application**
@@ -58,9 +58,9 @@ Your AI tutor for any YouTube video! Upload a YouTube link, and AskVid will tran
 
 1. **Video Input**: User pastes a YouTube URL
 2. **Audio Extraction**: The app downloads and extracts audio from the video
-3. **Transcription**: OpenAI Whisper converts speech to text
+3. **Content Analysis**: Smart content analysis based on video metadata and filename
 4. **Q&A Interface**: Users can ask questions about the video content
-5. **AI Answers**: GPT-3.5-turbo provides intelligent answers based on the transcript
+5. **AI Answers**: Gemini AI provides intelligent answers based on the content analysis
 
 ## 🎯 Usage
 
@@ -74,7 +74,7 @@ Your AI tutor for any YouTube video! Upload a YouTube link, and AskVid will tran
 
 - **Backend**: Flask (Python)
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **AI Services**: OpenAI (Whisper + GPT-3.5-turbo)
+- **AI Services**: Google Gemini AI
 - **Video Processing**: yt-dlp, FFmpeg
 - **Styling**: Custom CSS with gradients and animations
 
@@ -98,6 +98,23 @@ askvid/
 ## 🔧 Configuration
 
 ### Environment Variables
+
+Create a `.env` file in the project root with your API keys:
+
+```bash
+# Copy the example file
+cp env_example.txt .env
+
+# Edit the .env file and add your actual API key
+GEMINI_API_KEY=your_actual_gemini_api_key_here
+```
+
+### Security Notes
+
+⚠️ **IMPORTANT**: Never commit API keys to version control!
+- The `.env` file is already in `.gitignore` to prevent accidental commits
+- Always use environment variables for sensitive data
+- If you accidentally exposed an API key, regenerate it immediately
 
 - `OPENAI_API_KEY`: Your OpenAI API key (required)
 - `FLASK_SECRET_KEY`: Secret key for Flask sessions (optional)

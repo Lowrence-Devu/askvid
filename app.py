@@ -16,11 +16,14 @@ load_dotenv()
 app = Flask(__name__)
 
 # Configure Gemini AI
-gemini_api_key = "AIzaSyCBV3kZ-vugjrNXiGsLZhTSO5TerkAMxs8"
-genai.configure(api_key=gemini_api_key)
-
-print(f"🚀 Gemini AI configured successfully!")
-print(f"🔑 API Key: {gemini_api_key[:20]}...")
+gemini_api_key = os.getenv('GEMINI_API_KEY')
+if not gemini_api_key:
+    print("⚠️  Warning: GEMINI_API_KEY environment variable not set!")
+    print("   Please set your Gemini API key in a .env file or environment variable")
+else:
+    genai.configure(api_key=gemini_api_key)
+    print(f"🚀 Gemini AI configured successfully!")
+    print(f"🔑 API Key: {gemini_api_key[:20]}...")
 
 # Configure Google Cloud Speech (using default credentials)
 print("🎤 Google Cloud Speech-to-Text configured!")
