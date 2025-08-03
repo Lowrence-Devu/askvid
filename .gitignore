@@ -59,6 +59,16 @@ logs/
 temp/
 tmp/
 
+# Audio/video downloads
+*.mp3
+*.webm
+*.m4a
+tmp*/
+
+# Credentials and example envs
+env_example.txt
+.envrc
+
 # Audio files (downloaded during processing)
 *.mp3
 *.wav
