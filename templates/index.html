@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AskVid - AI Video Question Answering</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                <h1>AskVid</h1>
+            </div>
+            <p class="tagline">Your AI tutor for any YouTube video</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Video Input Section -->
+            <section class="video-input-section">
+                <div class="input-container">
+                    <h2>Paste a YouTube URL</h2>
+                    <p>Upload any YouTube video and ask questions about it</p>
+                    
+                    <div class="url-input-group">
+                        <input type="url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=..." class="url-input">
+                        <button id="processBtn" class="process-btn">
+                            <i class="fas fa-magic"></i>
+                            Process Video
+                        </button>
+                    </div>
+                    
+                    <div id="loadingIndicator" class="loading-indicator hidden">
+                        <div class="spinner"></div>
+                        <p>Processing video... This may take a few minutes</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Q&A Section -->
+            <section id="qaSection" class="qa-section hidden">
+                <div class="qa-container">
+                    <h2>Ask Questions About This Video</h2>
+                    
+                    <div class="question-input-group">
+                        <input type="text" id="questionInput" placeholder="What would you like to know about this video?" class="question-input">
+                        <button id="askBtn" class="ask-btn">
+                            <i class="fas fa-question-circle"></i>
+                            Ask
+                        </button>
+                        <button id="analyzeBtn" class="analyze-btn">
+                            <i class="fas fa-chart-bar"></i>
+                            Get Detailed Analysis
+                        </button>
+                    </div>
+
+                    <div id="answerContainer" class="answer-container hidden">
+                        <div class="answer-header">
+                            <i class="fas fa-lightbulb"></i>
+                            <h3>AI Answer</h3>
+                        </div>
+                        <div id="answerText" class="answer-text"></div>
+                    </div>
+
+                    <div id="questionLoading" class="loading-indicator hidden">
+                        <div class="spinner"></div>
+                        <p>Thinking...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Transcript Section -->
+            <section id="transcriptSection" class="transcript-section hidden">
+                <div class="transcript-container">
+                    <div class="transcript-header">
+                        <h3><i class="fas fa-file-alt"></i> Video Transcript</h3>
+                        <button id="toggleTranscript" class="toggle-btn">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div id="transcriptContent" class="transcript-content hidden">
+                        <p id="transcriptText"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2>How It Works</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>1. Paste URL</h3>
+                    <p>Simply paste any YouTube video link</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>2. AI Transcribes</h3>
+                    <p>Our AI converts speech to text</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>3. Ask Questions</h3>
+                    <p>Get instant answers about the video</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 AskVid. Built with ❤️ for learners everywhere.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html> 
